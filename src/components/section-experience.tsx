@@ -83,7 +83,7 @@ export function ExperienceSection({
                 className="relative"
               >
                 {/* Timeline dot (desktop only) */}
-                <div className="bg-accent border-background absolute left-6 hidden h-4 w-4 rounded-full border-4 md:block"></div>
+                <div className="bg-accent border-background absolute left-6 hidden size-4 rounded-full border-4 md:block"></div>
 
                 {/* Experience content */}
                 <div className="space-y-4 md:ml-20">

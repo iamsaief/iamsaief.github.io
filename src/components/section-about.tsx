@@ -117,7 +117,7 @@ export function AboutSection({
                           <Badge
                             key={skill}
                             variant="skill"
-                            className="px-3 py-1 text-sm transition-all hover:scale-105"
+                            className="px-3 py-1 text-sm"
                           >
                             {skill}
                           </Badge>
@@ -134,10 +134,7 @@ export function AboutSection({
                 >
                   {displaySkills.map((skill, index) => (
                     <motion.div key={skill} variants={skillVariants}>
-                      <Badge
-                        variant="skill"
-                        className="px-3 py-1 text-sm transition-all hover:scale-105"
-                      >
+                      <Badge variant="skill" className="px-3 py-1 text-sm">
                         {skill}
                       </Badge>
                     </motion.div>

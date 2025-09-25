@@ -65,13 +65,16 @@ export function Navigation() {
           {/* Logo/Name - scrolls to top when clicked */}
           <motion.a
             href="#"
-            className="text-foreground hover:text-accent text-xl font-semibold transition-all hover:scale-105"
+            className="text-accent focus-visible:ring-ring/50 rounded text-xl font-semibold transition-all outline-none hover:scale-105 focus-visible:ring-2"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <code>&lt;Saief/&gt;</code>
+            <code>
+              <span className="text-gray-500">&lt;</span>Saief
+              <span className="text-gray-500">/&gt;</span>
+            </code>
           </motion.a>
 
           <div className="flex items-center space-x-8">
@@ -81,7 +84,7 @@ export function Navigation() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`relative cursor-pointer text-sm transition-all hover:translate-y-[-2px] ${
+                  className={`focus-visible:ring-ring/50 relative cursor-pointer rounded-xs text-sm transition-all outline-none hover:translate-y-[-2px] focus-visible:ring-2 ${
                     activeSection === item.href.slice(1)
                       ? "text-accent"
                       : "text-muted-foreground hover:text-foreground"

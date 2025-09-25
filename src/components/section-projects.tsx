@@ -72,7 +72,7 @@ export function ProjectsSection({
   };
 
   return (
-    <section id="projects" className="bg-muted/30 px-6 py-24">
+    <section id="projects" className="px-6 py-24">
       <div className="mx-auto max-w-6xl">
         {/* Section header */}
         <motion.div
@@ -103,7 +103,7 @@ export function ProjectsSection({
               whileHover={{ y: -8 }} // Lift effect on hover
               transition={{ duration: 0.3 }}
             >
-              <Card className="group h-full overflow-hidden pt-0">
+              <Card className="group from-accent/5 to-accent/5 h-full overflow-hidden bg-gradient-to-br pt-0">
                 {/* Project image with hover zoom effect */}
                 <div className="aspect-video overflow-hidden">
                   <img

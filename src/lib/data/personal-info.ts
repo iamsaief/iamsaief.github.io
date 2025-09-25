@@ -9,6 +9,7 @@ export const personalInfo: PersonalInfo = {
   email: "saiefalemon@gmail.com",
   github: "https://github.com/iamsaief",
   linkedin: "https://linkedin.com/in/saiefalemon",
+  codepen: "https://codepen.io/iamsaief",
   resumeUrl: "/resume.pdf",
   bio: [
     "I design and build fast, responsive, and accessible websites and web apps. With 6+ years of experience working with React.js, Next.js, and WordPress, I've helped ship tools, dashboards, and digital platforms used by millions globally.",
@@ -29,8 +30,8 @@ export const socialLinks: SocialLink[] = [
     icon: "Linkedin",
   },
   {
-    name: "Email",
-    url: `mailto:${personalInfo.email}`,
-    icon: "Mail",
+    name: "Codepen",
+    url: personalInfo.codepen,
+    icon: "Codepen",
   },
 ];

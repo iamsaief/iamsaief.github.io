@@ -127,7 +127,7 @@ export function ContactSection({
   };
 
   return (
-    <section id="contact" className="bg-muted/30 px-6 py-24">
+    <section id="contact" className="bg-muted/20 px-6 py-24">
       <div className="mx-auto max-w-4xl">
         {/* Section header */}
         <motion.div
@@ -173,8 +173,7 @@ export function ContactSection({
                           ? "noopener noreferrer"
                           : undefined
                       }
-                      className="border-border hover:bg-accent/10 group flex items-center gap-4 rounded-lg border p-4 transition-all duration-200 hover:translate-x-2"
-                      //   whileHover={{ x: 8 }} // Slide animation on hover
+                      className="border-border hover:bg-accent/10 group focus-visible:ring-ring/50 flex items-center gap-4 rounded-lg border p-4 transition-all duration-200 outline-none hover:translate-x-2 focus-visible:ring-2"
                       transition={{ duration: 0.2 }}
                     >
                       <div className="bg-accent/10 group-hover:bg-accent/20 flex h-12 w-12 items-center justify-center rounded-lg transition-colors">
@@ -198,7 +197,7 @@ export function ContactSection({
           {/* Contact form (optional) */}
           {showForm && (
             <motion.div variants={itemVariants}>
-              <Card>
+              <Card className="bg-card/50">
                 <CardHeader>
                   <CardTitle>Send a Message</CardTitle>
                 </CardHeader>

@@ -1,36 +1,35 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "./theme-provider"
-import { useEffect, useState } from "react"
+import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "./theme-provider";
+import { useEffect, useState } from "react";
 
 // Animated theme toggle button with smooth icon transitions
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   // Prevent hydration mismatch by waiting for client-side mount
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   // Show placeholder during SSR to prevent layout shift
   if (!mounted) {
     return (
-      <div className="relative p-2 rounded-lg bg-secondary w-8 h-8">
-        <div className="h-4 w-4 opacity-0">
-          <Sun className="h-4 w-4" />
+      <div className="bg-secondary relative h-8 w-8 rounded-lg p-2">
+        <div className="size-4 opacity-0">
+          <Sun className="size-4" />
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <motion.button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-2 rounded-lg bg-secondary hover:bg-muted transition-colors"
-      whileHover={{ scale: 1.05 }}
+      className="bg-secondary hover:bg-muted focus-visible:ring-ring/50 relative cursor-pointer rounded-lg p-2 transition-all outline-none hover:scale-105 focus-visible:ring-2"
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
     >
@@ -44,7 +43,7 @@ export function ThemeToggle() {
         transition={{ duration: 0.2 }}
         className="absolute inset-2"
       >
-        <Moon className="h-4 w-4" />
+        <Moon className="size-4" />
       </motion.div>
 
       {/* Sun icon (visible in light mode) */}
@@ -57,13 +56,13 @@ export function ThemeToggle() {
         transition={{ duration: 0.2 }}
         className="absolute inset-2"
       >
-        <Sun className="h-4 w-4" />
+        <Sun className="size-4" />
       </motion.div>
 
       {/* Invisible placeholder to maintain button size */}
-      <div className="h-4 w-4 opacity-0">
-        <Sun className="h-4 w-4" />
+      <div className="size-4 opacity-0">
+        <Sun className="size-4" />
       </div>
     </motion.button>
-  )
+  );
 }

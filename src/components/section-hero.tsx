@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import {
   Github,
   Linkedin,
+  Codepen,
+  Mail,
   FileText,
   ArrowDown,
   MessageCircle,
 } from "lucide-react";
-import { personalInfo } from "@/lib/data/personal-info";
+import { personalInfo, socialLinks } from "@/lib/data/personal-info";
 
 /**
  * Hero section - main landing area with name, title, and CTA buttons
@@ -71,12 +73,13 @@ export function HeroSection({
     }
   };
 
-  // Icon mapping helper
+  // Icon mapping for dynamic social buttons (fallback to FileText)
   const getIconComponent = (iconName: string) => {
     const icons = {
       Github,
       Linkedin,
-      Mail: FileText, // Using FileText as fallback for Mail
+      Codepen,
+      Mail,
     };
     return icons[iconName as keyof typeof icons] || FileText;
   };
@@ -123,35 +126,23 @@ export function HeroSection({
               Hire Me
             </Button>
 
-            {/* Social/portfolio links */}
-            <Button size="lg" variant="outline" asChild>
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
-              </a>
-            </Button>
-
-            <Button size="lg" variant="outline" asChild>
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </a>
-            </Button>
-
-            {/*  <Button size="lg" variant="outline" asChild>
-              <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer">
-                <FileText className="w-5 h-5 mr-2" />
-                Resume
-              </a>
-            </Button> */}
+            {/* change: render social/portfolio links dynamically from data */}
+            {socialLinks.map((link) => {
+              const Icon = getIconComponent(link.icon);
+              return (
+                <Button key={link.name} size="lg" variant="outline" asChild>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.name}
+                  >
+                    <Icon className="mr-2 h-5 w-5" />
+                    {link.name}
+                  </a>
+                </Button>
+              );
+            })}
           </motion.div>
 
           {/* Animated scroll indicator */}
@@ -159,7 +150,7 @@ export function HeroSection({
             <motion.div variants={itemVariants} className="pt-16">
               <motion.button
                 onClick={scrollToAbout}
-                className="text-muted-foreground hover:text-accent inline-flex cursor-pointer items-center border-none bg-transparent transition-colors"
+                className="text-muted-foreground hover:text-accent focus-visible:ring-ring/50 inline-flex cursor-pointer items-center rounded border-none bg-transparent transition-colors outline-none focus-visible:ring-2"
                 animate={{ y: [0, 8, 0] }}
                 transition={{
                   duration: 2,
@@ -169,7 +160,7 @@ export function HeroSection({
                 whileHover={{ scale: 1.1 }}
                 aria-label="Scroll to about section"
               >
-                <ArrowDown className="h-5 w-5" />
+                <ArrowDown className="size-5" />
               </motion.button>
             </motion.div>
           )}
