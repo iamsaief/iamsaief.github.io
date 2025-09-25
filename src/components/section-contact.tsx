@@ -38,7 +38,7 @@ interface ContactSectionProps {
 export function ContactSection({
   showForm = true,
   customTitle = "Get In Touch",
-  customDescription = "I'm always interested in new opportunities and collaborations. Let's connect and discuss how we can work together.",
+  customDescription = "I\'m always interested in new opportunities and collaborations. Let\'s connect and discuss how we can work together.",
 }: ContactSectionProps) {
   // Form state management
   const [formData, setFormData] = useState<ContactFormData>({
@@ -158,7 +158,7 @@ export function ContactSection({
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
               <h3 className="text-foreground mb-6 text-xl font-semibold">
-                Let's Connect
+                {"Let\'s Connect"}
               </h3>
               <div className="space-y-4">
                 {contactMethods.map((method) => {

@@ -76,7 +76,7 @@ export function ExperienceSection({
           <div className="bg-border absolute top-0 bottom-0 left-8 hidden w-0.5 md:block"></div>
 
           <div className="space-y-12">
-            {displayExperiences.map((experience, index) => (
+            {displayExperiences.map((experience) => (
               <motion.div
                 key={`${experience.company}-${experience.role}`}
                 variants={itemVariants}

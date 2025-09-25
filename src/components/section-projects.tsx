@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data/projects";
+import Image from "next/image";
 import type { Project } from "@/lib/types";
 
 // Props for customizing projects display
@@ -96,7 +97,7 @@ export function ProjectsSection({
           viewport={{ once: true, margin: "-100px" }}
           className="grid gap-8 md:grid-cols-2"
         >
-          {displayProjects.map((project, index) => (
+          {displayProjects.map((project) => (
             <motion.div
               key={project.name}
               variants={cardVariants}
@@ -106,10 +107,14 @@ export function ProjectsSection({
               <Card className="group from-accent/5 to-accent/5 h-full overflow-hidden bg-gradient-to-br pt-0">
                 {/* Project image with hover zoom effect */}
                 <div className="aspect-video overflow-hidden">
-                  <img
+                  <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.name}
+                    width={1280}
+                    height={720}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    unoptimized
+                    priority={false}
                   />
                 </div>
 

@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 /**
  * Utility function for merging Tailwind CSS classes
@@ -13,5 +13,5 @@ import { twMerge } from "tailwind-merge"
  * cn('p-4', 'px-6') // Results in 'py-4 px-6' (px-6 overrides px-4)
  */
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }

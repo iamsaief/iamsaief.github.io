@@ -132,7 +132,7 @@ export function AboutSection({
                   variants={containerVariants}
                   className="flex flex-wrap gap-2"
                 >
-                  {displaySkills.map((skill, index) => (
+                  {displaySkills.map((skill) => (
                     <motion.div key={skill} variants={skillVariants}>
                       <Badge variant="skill" className="px-3 py-1 text-sm">
                         {skill}

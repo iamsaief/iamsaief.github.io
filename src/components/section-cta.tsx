@@ -17,7 +17,7 @@ interface CTASectionProps {
 export function CTASection({
   showAvailabilityBadge = true,
   customTitle = "Ready to Work Together?",
-  customDescription = "I'm open to freelance projects and full-time work. Let's discuss how I can help bring your ideas to life.",
+  customDescription = "I\'m open to freelance projects and full-time work. Let\'s discuss how I can help bring your ideas to life.",
 }: CTASectionProps) {
   // Smooth scroll to contact section
   const scrollToContact = () => {
@@ -133,7 +133,7 @@ export function CTASection({
                   onClick={scrollToContact}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  Let's Discuss Your Project
+                  {"Let\'s Discuss Your Project"}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
 
