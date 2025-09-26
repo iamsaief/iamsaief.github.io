@@ -14,6 +14,7 @@ import { Github, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data/projects";
 import Image from "next/image";
 import type { Project } from "@/lib/types";
+import Link from "next/link";
 
 // Props for customizing projects display
 interface ProjectsSectionProps {
@@ -144,7 +145,11 @@ export function ProjectsSection({
                   {/* Technology stack badges */}
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <Badge key={tech} variant="skill" className="text-xs">
+                      <Badge
+                        key={tech}
+                        variant="skill"
+                        className="bg-gray-500/10 text-xs text-gray-500"
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -175,6 +180,29 @@ export function ProjectsSection({
               </Card>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Explore More Projects button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 flex items-center justify-center text-center"
+        >
+          <Button
+            asChild
+            className="group bg-accent hover:bg-accent/90 text-accent-foreground h-12 rounded-full !px-6 text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            <a
+              href="https://iamsaief-reactjs.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore More Projects
+              <ExternalLink className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" />
+            </a>
+          </Button>
         </motion.div>
       </div>
     </section>
