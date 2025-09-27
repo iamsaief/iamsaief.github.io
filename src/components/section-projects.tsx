@@ -14,7 +14,6 @@ import { Github, ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data/projects";
 import Image from "next/image";
 import type { Project } from "@/lib/types";
-import Link from "next/link";
 
 // Props for customizing projects display
 interface ProjectsSectionProps {
@@ -192,7 +191,8 @@ export function ProjectsSection({
         >
           <Button
             asChild
-            className="group bg-accent hover:bg-accent/90 text-accent-foreground h-12 rounded-full !px-6 text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            size="lg"
+            className="group bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:scale-105 hover:shadow-xl"
           >
             <a
               href="https://iamsaief-reactjs.vercel.app"
